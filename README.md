@@ -18,3 +18,15 @@ The following is the Fresnel section. Shadergraph has the extremely useful compo
 
 <img width="1183" height="643" alt="image" src="https://github.com/user-attachments/assets/6cdc6316-f5f9-4250-afa8-0188ab33ed4f" />
 
+The following is the scrolling lines section. It looks more complicated but is actually markedly simpler. We take the UV y-position and multiply it by some float input "line frequency," the impact of which will be explained in a moment. We then add the time component to make a variable of which the y-position of the UV changes over time, using some float input "line speed" to affect the rate at which this change occurs. After adding them together, we input this into a sine function. This is why the line frequency is used, as a greater value in the sine function is not represented by a bigger number, but instead differently at some point between 0 and 1. In other words, line frequency increases the amount at which the sine wave iterates over time. We plug this into a step function to make a harsh contrast between the sine function being "greater" and "less than" 0.5 (our chosen input) and multiply this by some color input "line color" which modifies the color of the white lines and achieve our intended output.
+
+<img width="1637" height="930" alt="image" src="https://github.com/user-attachments/assets/978790d2-969f-4347-b2b8-5c0b004ee33a" />
+
+The following is the blinking section. We multiply the time by some float input "blink speed," then floor it. This essentially means we're counting in whole integer seconds rather than some float, enabling us to transition across 0 and 1 without having an awkward smoothing effect that doesn't exist in the original. We take this value and mod it by 2, so even numbers return 0 and odd numbers return 1. This is our final alpha value, now blinking every "blink speed" seconds.
+
+<img width="830" height="723" alt="image" src="https://github.com/user-attachments/assets/2c8f5cd2-593a-4762-ab74-25e5c646bb16" />
+
+In the end, we add our fresnel and scrolling lines to get our color output and multiply the blink function by some float input "transparency" to get our alpha output.
+
+<img width="1166" height="717" alt="image" src="https://github.com/user-attachments/assets/b450ef5f-6cf1-455b-bc5d-8c8cbf1204fe" />
+
