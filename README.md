@@ -74,3 +74,7 @@ The following is the square borders section of the shader, and it is likely the 
 The following is the remaining section of the shader. The output of the square borders is multiplied by our texture and the input color "rim color" to create our output color, and the transparency is a mix of the alpha channel of our texture and some float input "transparency."
 
 <img width="1836" height="1092" alt="image" src="https://github.com/user-attachments/assets/416b2b6f-1052-441c-87fe-b2d927ce8bfd" />
+
+## Summary
+
+The power pellets are represented by a hologram, the floors are represented by a scrolling shader, the ghosts are represented by a rotating toon shader, and the walls are represented by a custom transparent shader with manually-driven square borders. The final build includes all of these components, with a moving wall in front of the camera to demonstrate its semi-transparent nature. No gameplay was provided so as to provide more time to create suitable and attractive shaders for the final product.
