@@ -30,3 +30,12 @@ In the end, we add our fresnel and scrolling lines to get our color output and m
 
 <img width="1166" height="717" alt="image" src="https://github.com/user-attachments/assets/b450ef5f-6cf1-455b-bc5d-8c8cbf1204fe" />
 
+## Scrolling Shader
+
+<img width="591" height="418" alt="image" src="https://github.com/user-attachments/assets/110f397e-1af0-48d7-a5af-7ffef116036f" />
+
+Though harder to represent, the shader above is applied to our floor which is scrolling a material input. The reasoning for this application is that, in a sci-fi cyberpunk world, it is not uncommon to see extreme overuse of screens decorating the walls and floor. Thus, in this neon landscape, I think it's relevant to make the floor scroll with a dark, blue-ish black texture. The method to accomplish a scrolling shader is much simpler than above, we simply need to move our UV over time. The shader above is modified by some color input "base color" to achieve the darkened results.
+
+This shader should not require a sectional analysis. To summarize, the time input is multiplied by some float "scroll speed" and added to our UV to offset our UV map over time. We then process our sample texture using this offset UV to make the texture continually move and wrap around over time. Lastly, we multiply this texture by our "base color" color input to achieve our final results.
+
+<img width="1625" height="773" alt="image" src="https://github.com/user-attachments/assets/359e80b4-0480-4f97-8878-968e78bdde21" />
